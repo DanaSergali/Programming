@@ -26,8 +26,8 @@ def parse_soup(article_path, text, source):
     publ_year = year[len(year) - 1]
 
     # topic и audience_level не получилось вытащить со страницы со статьей
-    row = [article_path, author, header, created, "публицистика", "", "нейтральный", audience_age, "", "районная",
-           source, publication, publ_year, "газета", "Россия", "ru"]
+    row = [article_path, author, header, created, "публицистика", "None", "нейтральный", audience_age, "None",
+           "районная", source, publication, publ_year, "газета", "Россия", "ru"]
 
     return row
 
@@ -39,4 +39,4 @@ def save_to_csv(csv_path, article_path, text, source):
         writer = csv.writer(csv_file, delimiter='\t')
         writer.writerow(row)
 
-    print('csv written')
+    return row
