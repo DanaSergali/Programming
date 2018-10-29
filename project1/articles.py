@@ -1,13 +1,13 @@
 from csv_writer import save_to_csv
 from dirs import create_dir_by_date
-
 import urllib.request
 import time
 from bs4 import BeautifulSoup
 
-user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'     # агент для допуска на сайт
+user_agent = 'Chrome/11.0 (Windows NT 6.1; Win64; x64)'     # агент для допуска на сайт
 visited_pages = []                                          # уже посещенные страницы
 pages_to_visit = []                                         # общий список найденных страниц для посещения
+count_words = [0]                                           # примерный подсчет количества слов
 
 
 # для создания описательного колонтитула в оригинальной статье
@@ -24,7 +24,7 @@ def create_meta_original(meta):
 def fetch_text(soup):
     body = soup.find('div', {'class': 'news-text'})
 
-    lines = body.find_all('p', {'class': 'western'})
+    lines = body.find_all('p')
 
     text = []
 
@@ -47,14 +47,18 @@ def save_article(text, source):
     article_path_dir = "newspaper/plain/%s/%s" % (created[2], created[1])
     article_path = "%s/article_%d.txt" % (article_path_dir, len(visited_pages))
 
-    meta = save_to_csv('metadata.csv', article_path, text, source)
+    meta = save_to_csv('newspaper/metadata.csv', article_path, text, source)
 
     pre = create_meta_original(meta)
 
     text = fetch_text(soup)
 
-    for t in text:
-        print(t)
+    # подсчет слов
+    for lll in text:
+        some_shit = lll.split()
+        for sd in some_shit:
+            if len(sd) > 1:
+                count_words[0] += len(sd)
 
     out_f = open(article_path, 'w')
     for line in pre:
@@ -101,6 +105,41 @@ def download_page(common_url, page_url, pages_limit):
             print(len(pages_to_visit))
 
 
+def add_local_pages(common_url, soup, pages_limit):
+    city_news = soup.find('div', {'class': 'city-news'})
+    aside = city_news.find('div', {'class': 'aside-block-link'})
+    link = aside.find('a').get('href')
+    link = common_url + link
+
+    time.sleep(1)
+    req = urllib.request.Request(link, headers={'User-Agent': user_agent})
+    with urllib.request.urlopen(req) as response:
+        main_page = response.read().decode('windows-1251')
+
+    soup_c = BeautifulSoup(main_page, 'html.parser')
+
+    for pg in range(25, 31):
+        pager = soup_c.find('div', {'class': 'pager'})
+        link_c = "%s%s%d" % (common_url, pager.find('a').get('href'), pg)
+
+        time.sleep(1)
+        req_city = urllib.request.Request(link_c, headers={'User-Agent': user_agent})
+        with urllib.request.urlopen(req_city) as response:
+            main_page_city = response.read().decode('windows-1251')
+
+        soup_city = BeautifulSoup(main_page_city, 'html.parser')
+        news_div = soup_city.find('div', {'class': 'news-content'})
+        for blog in news_div.find_all('div', {'class': 'blogs-item'}):
+            link_add = common_url + blog.find('a').get('href')
+            if pages_limit > len(pages_to_visit):
+                if link_add not in pages_to_visit:
+                    pages_to_visit.append(link_add)
+            else:
+                break
+
+    return
+
+
 def connect(common_url, pages_limit):
     req = urllib.request.Request(common_url, headers={'User-Agent': user_agent})
     with urllib.request.urlopen(req) as response:
@@ -109,9 +148,7 @@ def connect(common_url, pages_limit):
     soup = BeautifulSoup(main_page, 'html.parser')
 
     for post in soup.find_all('div', {'class': 'city-news-item-name'}):
-        print(post)
         link = post.find('a')
-        print(link)
         if link:
             href = link.get('href')
             if common_url not in href:
@@ -122,11 +159,11 @@ def connect(common_url, pages_limit):
             else:
                 break
 
-    print(len(pages_to_visit))
-    for p in pages_to_visit:
-        print(p)
+    # добавление локальных новостей города
+    add_local_pages(common_url, soup, pages_limit)
 
     for p in pages_to_visit:
-        print(p)
         download_page(common_url, p, pages_limit)
-        time.sleep(2)
+        time.sleep(0.5)
+
+    print(count_words)
