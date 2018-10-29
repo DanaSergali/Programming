@@ -1,0 +1,5 @@
+*.DS_Store
+*.csv
+*/.idea
+*/__pycache__
+*/venv
