@@ -10,10 +10,64 @@ visited_pages = []                                          # уже посещ�
 pages_to_visit = []                                         # общий список найденных страниц для посещения
 
 
+# для создания описательного колонтитула в оригинальной статье
+def create_meta_original(meta):
+    author = "@au %s" % (meta[1])
+    title = "@ti %s" % (meta[2])
+    date = "@da %s" % (meta[3])
+    topic = "@topic %s" % (meta[5])
+    url = "@url %s" % (meta[10])
+
+    return [author, title, date, topic, url]
+
+
+def fetch_text(soup):
+    body = soup.find('div', {'class': 'news-text'})
+
+    lines = body.find_all('p', {'class': 'western'})
+
+    text = []
+
+    for l in lines:
+        text.append(l.get_text())
+
+    return text
+
+
 # функция для сохранения статьи и метаданных
 def save_article(text, source):
-    save_to_csv('metadata.csv', 'blah blah', text, source)
-    return
+    soup = BeautifulSoup(text, 'html.parser')
+
+    main_info = soup.find('div', {'class': 'news-info'})  # главная информация о статье
+    text_div = main_info.get_text().split('\n')
+    created = text_div[3].replace("\t", "")[:10].split('.')
+
+    create_dir_by_date(created[2], created[1])
+
+    article_path_dir = "newspaper/plain/%s/%s" % (created[2], created[1])
+    article_path = "%s/article_%d.txt" % (article_path_dir, len(visited_pages))
+
+    meta = save_to_csv('metadata.csv', article_path, text, source)
+
+    pre = create_meta_original(meta)
+
+    text = fetch_text(soup)
+
+    for t in text:
+        print(t)
+
+    out_f = open(article_path, 'w')
+    for line in pre:
+        out_f.write(line)
+        out_f.write('\n')
+
+    out_f.write('\n')
+
+    for line in text:
+        out_f.write(line)
+        out_f.write('\n')
+
+    out_f.close()
 
 
 def download_page(common_url, page_url, pages_limit):
