@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Языковая интуиция</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  .row {
+    border-top: 1px dashed green;
+  }
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href={{ url_for('index') }}>Главная</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href={{ url_for('stats') }}> Статистика</a></li>
+        <li><a href={{ url_for('json') }}> JSON</a></li>
+        <li><a href={{ url_for('search') }}><span class="glyphicon glyphicon-search"></span> Поиск</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Языковая интуиция</h3>
+  <img src="static/colosseum.jpg" class="img-responsive img-circle margin" style="display:inline; " alt="Colosseum (Italy)" width="300" height="300">
+  <h3>Насколько итальянские слова могут быть интуитивно понятны для Вас?</h3>
+</div>
+
+{% if age %}
+  <div class="container-fluid bg-3 text-center">
+    <h3 class="margin">Приступим!</h3><br>
+    <h3 class="margin">Эти слова действительно обозначают то, что изображено на картинках?</h3>
+    <form>
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q1" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q1" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q1.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 1" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q2" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q2" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q2.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 2" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q3" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q3" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q3.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 3" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q4" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q4" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q4.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 4" width="300" height="300">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q5" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q5" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q5.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 5" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q6" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q6" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q6.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 6" width="300" height="300"><br>
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q7" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q7" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q7.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 7" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q8" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q8" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q8.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 8" width="300" height="300">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q9" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q9" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q9.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 9" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q10" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q10" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q10.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 10" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q11" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q11" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q11.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 11" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q12" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q12" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q12.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 12" width="300" height="300">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q13" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q13" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q13.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 13" width="300" height="300">
+        </div>
+        <div class="col-sm-3 form-group">
+          <label class="radio-inline"><input type="radio" name="q14" value="yes" checked>Да</label>
+          <label class="radio-inline"><input type="radio" name="q14" value="no">Нет</label><br>
+          <img src="{{url_for('static', filename='q14.jpg')}}" class="img-responsive img-rounded margin" style="display:inline" alt="Question 14" width="300" height="300">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success btn-lg">Отправить</button>
+    </form>
+  </div>
+{% elif end %}
+  <div class="container-fluid bg-3 text-center">
+    <h3 class="margin">Спасибо за Ваши ответы</h3>
+  </div>
+  <div class="container-fluid bg-2 text-center">
+    <h3 class="margin">Ваши результаты</h3>
+    <div class="row">
+      {% for name, value in answers.items() %}
+        <div class="col-sm-3" style="border-top: 1px solid white">
+          {% if value == 'correct' %}
+            <span class="alert-success glyphicon glyphicon-check"></span> {{ name }}: Correct
+          {% else %}
+            <span class="alert-danger glyphicon glyphicon-remove"></span> {{ name }}: Wrong
+          {% endif %}
+          <br>
+          {% if name == 'q1' %}
+            TATUAGGIO = ТАТУИРОВКА – да, правильно
+          {% endif %}
+          {% if name == 'q2' %}
+            LUNA = ЛУНА – да, правильно
+          {% endif %}
+          {% if name == 'q3' %}
+            DANZINA = БАЛЕРИНА, танцовщица – не правильно (правильно – BALLERINA)
+          {% endif %}
+          {% if name == 'q4' %}
+            FAMIGLIA = СЕМЬЯ – да, правильно
+          {% endif %}
+          {% if name == 'q5' %}
+            TIGGRANE = ТИГР - не правильно (правильно - TIGRE)
+          {% endif %}
+          {% if name == 'q6' %}
+            PANTALONI = ШТАНЫ - да, правильно
+          {% endif %}
+          {% if name == 'q7' %}
+            BAMBINA = РЕБОНОК, маленькая девочка – да, правильно
+          {% endif %}
+          {% if name == 'q8' %}
+            ROTTA = РОТ – не правильно (правильно – BOCCA)
+          {% endif %}
+          {% if name == 'q9' %}
+            NOSINO = НОС - не правильно (правильно - NASO)
+          {% endif %}
+          {% if name == 'q10' %}
+            POMODORI = ПОМИДОРЫ – да, правильно
+          {% endif %}
+          {% if name == 'q11' %}
+            SOLE = СОЛНЦЕ – да, правильно
+          {% endif %}
+          {% if name == 'q12' %}
+            ROSALINA = РОЗА - не правильно (правильно - ROSA)
+          {% endif %}
+          {% if name == 'q13' %}
+            KITA = КОШКА – не правильно (правильно - GATA)
+          {% endif %}
+          {% if name == 'q14' %}
+            MARE = МОРЕ – да, правильно
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  <div class="container-fluid bg-2 text-center">
+    <h3 class="margin">Quiz</h3>
+    <p>На этой странице Вас ждет небольшой опрос на тему языковой интуиции</p>
+    <p>Ответьте, пожалуйста, на несколько вопросов и проверьте свою удачу на языке, который никогда не изучали (if know italian - go luck yourselves)</p>
+    <p>
+      Вам будет представлена картинка и слово на итальянском. Не заглядывая в словарь, попробуйте отгадать перевод итальянского слова на русский язык.
+      Выберите "Да", если это слово действительно обозначает то, что изображено на картинке, и
+      "Нет" – слово не соответствует или вовсе не существует
+    </p>
+    <p>
+      Осторожно! Некоторые слова могут звучать очень схоже с русскими, иногда это помогает, иногда - нет
+    </p>
+  </div>
+
+  <div class="container-fluid bg-3 text-center">
+    <h3 class="margin">Сперва несколько вопросов о Вас</h3><br>
+    <div class="row">
+      <form>
+        <div class="col-sm-4 form-group">
+          <label for="sel1">Ваш возраст:</label>
+          <select class="form-control" id="sel1" name="age">
+            <option>Меньше 18</option>
+            <option>18-25</option>
+            <option>26-40</option>
+            <option>41-60</option>
+            <option>Больше 60</option>
+          </select>
+        </div>
+        <div class="col-sm-4 form-group">
+          <label for="sel2">Ваш пол:</label>
+          <select class="form-control" id="sel2" name="gender">
+            <option>М</option>
+            <option>Ж</option>
+          </select>
+        </div>
+        <div class="col-sm-4 form-group">
+          <label for="sel3">Уровень образования:</label>
+          <select class="form-control" id="sel3" name="edu">
+            <option>Среднее</option>
+            <option>Среднее специальное</option>
+            <option>Неоконченное высшее</option>
+            <option>Высшее</option>
+          </select>
+        </div>
+        <div class="col-sm-6 form-group">
+          <label for="city">Откуда Вы:</label>
+          <input class="form-control" id="city" type="text" name="city" value="Москва">
+        </div>
+        <div class="col-sm-6 form-group">
+          <label for="native">Ваш родной язык:</label>
+          <input class="form-control" id="native" type="text" name="native" value="Русский">
+        </div>
+        <button type="submit" class="btn btn-success btn-lg">Перейти к вопросам</button>
+      </form>
+    </div>
+  </div>
+{% endif %}
+
+<footer class="container-fluid bg-4 text-center">
+  <p>Made by Dana Sergaliyeva <a href="https://github.com/DanaSergali">github.com/DanaSergali</a></p> 
+</footer>
+
+</body>
+</html>

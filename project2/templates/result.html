@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Языковая интуиция</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  </style>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href={{ url_for('index') }}>Главная</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href={{ url_for('stats') }}> Статистика</a></li>
+            <li><a href={{ url_for('json') }}> JSON</a></li>
+            <li><a href={{ url_for('search') }}><span class="glyphicon glyphicon-search"></span> Поиск</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid bg-1 text-center">
+      <h3 class="margin">Поиск</h3>
+      <p> Поиск производится по двум критериям: минимальный процент правильных ответов и пол информанта </p>
+    </div>
+
+    <div class="container-fluid bg-2 text-center">
+      <h3 class="margin">Результат поиска</h3>
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 class="margin">Указанный процент:</h3>
+          <h3 class="margin">{{ p }}</h3>
+        </div>
+        <div class="col-sm-6">
+          <h3 class="margin">Выбранный пол:</h3>
+          <h3 class="margin">{{ g }}</h3>
+        </div>
+      </div>
+      <h3 class="margin">Найдено результатов: {{ result|length }}</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Возраст</th>
+            <th>Пол</th>
+            <th>Образование</th>
+            <th>Город</th>
+            <th>Язык</th>
+            <th>Q1</th>
+            <th>Q2</th>
+            <th>Q3</th>
+            <th>Q4</th>
+            <th>Q5</th>
+            <th>Q6</th>
+            <th>Q7</th>
+            <th>Q8</th>
+            <th>Q9</th>
+            <th>Q10</th>
+            <th>Q11</th>
+            <th>Q12</th>
+            <th>Q13</th>
+            <th>Q14</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in result %}
+            <tr>
+              {% for name, val in item.items() %}
+                <td> {{val}} </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  
+    <footer class="container-fluid bg-4 text-center">
+      <p>Made by Dana Sergaliyeva <a href="https://github.com/DanaSergali">github.com/DanaSergali</a></p> 
+    </footer>
+  </body>
+</html>
