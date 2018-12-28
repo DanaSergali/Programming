@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container-fluid bg-4 text-center">
+    <h3 class="margin">Найдено результатов: {{ art_list|length }}</h3>
+
+    {% for art in art_list %}
+      <div class="col-sm-12 res_row">
+        <h4> {{ art.title }} | Автор: {{ art.author }} </h4>
+        <p> {{art.date}} </p>
+        <a href={{art.url}}> {{art.url}} </a>
+        <p> {{art.plain}} </p>
+      </div>
+    {% endfor %}
+    
+  </div>
+{% endblock %}
