@@ -1,0 +1,6 @@
+@au admin1
+@ti В России резко выросли цены на сахар
+@da 26.10.2018
+@topic None
+@url http://www.zarpressa.ru/news/novosti-rossii-i-mira/v-rossii-rezko-vyrosli-tseny-na-sakhar/
+

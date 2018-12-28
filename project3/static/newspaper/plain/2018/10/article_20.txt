@@ -1,0 +1,6 @@
+@au admin1
+@ti Зарплаты в Пензенской области в следующем году вырастут на 29%
+@da 26.10.2018
+@topic None
+@url http://www.zarpressa.ru/news/novosti-regiona/zarplaty-v-penzenskoy-oblasti-v-sleduyushchem-godu-vyrastut-na-29/
+

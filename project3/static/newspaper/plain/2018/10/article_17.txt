@@ -1,0 +1,6 @@
+@au admin1
+@ti Как выбрать хороший пуховик?
+@da 26.10.2018
+@topic None
+@url http://www.zarpressa.ru/news/novosti-rossii-i-mira/kak-vybrat-khoroshiy-pukhovik/
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html><body>
+<se>@<w></w> admin3
+@<w></w> <w><ana lex="зареченский" gr="A=acc,pl,plen,inan" /><ana lex="зареченский" gr="A=nom,pl,plen" /></w> <w><ana lex="пловец" gr="S,m,anim=nom,pl" /></w> <w><ana lex="привозить" gr="V=praet,pl,indic,pf" /></w> <w><ana lex="с" gr="PR=" /></w> <w><ana lex="чемпионат" gr="S,m,inan=gen,sg" /></w> <w><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=abl,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=abl,sg" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=acc,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=acc,sg" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=dat,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=dat,sg" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=gen,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=gen,sg" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=ins,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=ins,sg" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=nom,pl" /><ana lex="пфо" qual="bastard" gr="S,persn,f,anim=nom,sg" /></w> 15 <w><ana lex="награда" gr="S,f,inan=gen,pl" /></w>
+@<w></w> 23.10.2018
+@<w></w> <w></w>
+@<w></w> <w></w>://<w></w>.<w></w>.<w></w>/<w></w>/<w></w>-<w></w>/<w></w>-<w></w>-<w></w>-<w></w>-<w></w>-<w></w>-15-<w></w>/
+
+<w><ana lex="на" gr="PR=" /></w> <w><ana lex="чемпионат" gr="S,m,inan=abl,sg" /></w> <w><ana lex="приволжский" gr="A=acc,sg,plen,m,anim" /><ana lex="приволжский" gr="A=gen,sg,plen,m" /><ana lex="приволжский" gr="A=gen,sg,plen,n" /></w> <w><ana lex="федеральный" gr="A=acc,sg,plen,m,anim" /><ana lex="федеральный" gr="A=gen,sg,plen,m" /><ana lex="федеральный" gr="A=gen,sg,plen,n" /></w> <w><ana lex="округ" gr="S,m,inan=acc,pl" /><ana lex="округ" gr="S,m,inan=gen,sg" /><ana lex="округ" gr="S,m,inan=nom,pl" /></w> <w><ana lex="по" gr="PR=" /></w> <w><ana lex="плавание" gr="S,n,inan=dat,sg" /></w> <w><ana lex="зареченец" gr="S,m,anim=nom,pl" /></w> <w><ana lex="завоевывать" gr="V,tran=praet,pl,indic,pf" /></w> 15 <w><ana lex="награда" gr="S,f,inan=gen,pl" /></w> <w><ana lex="различный" gr="A=acc,sg,plen,m,anim" /><ana lex="различный" gr="A=gen,sg,plen,m" /><ana lex="различный" gr="A=gen,sg,plen,n" /></w> <w><ana lex="достоинство" gr="S,n,inan=acc,pl" /><ana lex="достоинство" gr="S,n,inan=gen,sg" /><ana lex="достоинство" gr="S,n,inan=nom,pl" /></w>. 
+
+
+
+<w><ana lex="золотой" gr="A=nom,sg,plen,f" /></w>, <w><ana lex="серебряный" gr="A=nom,sg,plen,f" /></w> <w><ana lex="и" gr="CONJ=" /></w> <w><ana lex="три" gr="NUM=nom" /><ana lex="три" gr="NUM=acc,inan" /></w> <w><ana lex="бронзовый" gr="A=abl,pl,plen" /><ana lex="бронзовый" gr="A=acc,pl,plen,anim" /><ana lex="бронзовый" gr="A=gen,pl,plen" /></w> <w><ana lex="медаль" gr="S,f,inan=abl,sg" /><ana lex="медаль" gr="S,f,inan=acc,pl" /><ana lex="медаль" gr="S,f,inan=dat,sg" /><ana lex="медаль" gr="S,f,inan=gen,sg" /><ana lex="медаль" gr="S,f,inan=nom,pl" /></w> <w><ana lex="на" gr="PR=" /></w> <w><ana lex="счет" gr="S,m,inan=dat,sg" /><ana lex="счет" gr="S,m,inan=part,sg" /></w> <w><ana lex="александр" gr="S,persn,m,anim=acc,sg" /><ana lex="александр" gr="S,persn,m,anim=gen,sg" /></w> <w><ana lex="харланов" qual="bastard" gr="S,famn,m,anim=acc,sg" /><ana lex="харланов" qual="bastard" gr="S,famn,m,anim=gen,sg" /></w>. 
+<w><ana lex="один" gr="APRO=acc,sg,n" /><ana lex="один" gr="APRO=nom,sg,n" /></w> <w><ana lex="золото" gr="S,sg,n,inan=acc" /><ana lex="золото" gr="S,sg,n,inan=nom" /></w>, <w><ana lex="два" gr="NUM=acc,m,inan" /><ana lex="два" gr="NUM=nom,m" /><ana lex="два" gr="NUM=acc,n" /><ana lex="два" gr="NUM=nom,n" /></w> <w><ana lex="серебро" gr="S,sg,n,inan=gen" /></w> <w><ana lex="и" gr="CONJ=" /></w> <w><ana lex="три" gr="NUM=nom" /><ana lex="три" gr="NUM=acc,inan" /></w> <w><ana lex="бронза" gr="S,f,inan=acc,pl" /><ana lex="бронза" gr="S,f,inan=gen,sg" /><ana lex="бронза" gr="S,f,inan=nom,pl" /></w> <w><ana lex="у" gr="PR=" /></w> <w><ana lex="егор" gr="S,persn,m,anim=acc,sg" /><ana lex="егор" gr="S,persn,m,anim=gen,sg" /></w> <w><ana lex="сучков" gr="S,famn,m,anim=acc,sg" /><ana lex="сучков" gr="S,famn,m,anim=gen,sg" /></w>. 
+<w><ana lex="еще" gr="ADV=" /></w> <w><ana lex="по" gr="PR=" /></w> <w><ana lex="один" gr="APRO=abl,sg,f" /><ana lex="один" gr="APRO=dat,sg,f" /><ana lex="один" gr="APRO=gen,sg,f" /><ana lex="один" gr="APRO=ins,sg,f" /></w> <w><ana lex="золотой" gr="A=acc,sg,plen,m,inan" /><ana lex="золотой" gr="A=nom,sg,plen,m" /><ana lex="золотой" gr="A=abl,sg,plen,f" /><ana lex="золотой" gr="A=dat,sg,plen,f" /><ana lex="золотой" gr="A=gen,sg,plen,f" /><ana lex="золотой" gr="A=ins,sg,plen,f" /></w> <w><ana lex="и" gr="CONJ=" /></w> <w><ana lex="серебряный" gr="A=abl,sg,plen,f" /><ana lex="серебряный" gr="A=dat,sg,plen,f" /><ana lex="серебряный" gr="A=gen,sg,plen,f" /><ana lex="серебряный" gr="A=ins,sg,plen,f" /></w> <w><ana lex="награда" gr="S,f,inan=abl,sg" /><ana lex="награда" gr="S,f,inan=dat,sg" /></w> <w><ana lex="у" gr="PR=" /></w> <w><ana lex="роман" gr="S,m,inan=gen,sg" /></w> <w><ana lex="ларина" gr="S,famn,f,anim=nom,sg" /></w> <w><ana lex="и" gr="CONJ=" /></w> <w><ana lex="дарья" gr="S,persn,f,anim=gen,sg" /><ana lex="дарья" gr="S,persn,f,anim=nom,pl" /></w> <w><ana lex="гутова" qual="bastard" gr="S,famn,f,anim=abl,sg" /><ana lex="гутова" qual="bastard" gr="S,famn,f,anim=dat,sg" /><ana lex="гутова" qual="bastard" gr="S,famn,f,anim=gen,sg" /><ana lex="гутова" qual="bastard" gr="S,famn,f,anim=ins,sg" /></w>.
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+<w><ana lex="александр" gr="S,persn,m,anim=nom,sg" /></w> <w><ana lex="харланов" qual="bastard" gr="S,famn,m,anim=nom,sg" /></w>: «16 <w><ana lex="год" gr="S,m,inan=gen,pl" /></w> <w><ana lex="подряд" gr="ADV=" /></w> <w><ana lex="вставать" gr="V,intr=inpraes,sg,indic,1p,ipf" /></w> <w><ana lex="в" gr="PR=" /></w> 5 <w><ana lex="утро" gr="S,n,inan=acc,pl" /><ana lex="утро" gr="S,n,inan=gen,sg" /><ana lex="утро" gr="S,n,inan=nom,pl" /></w>»
+
+
+
+
+
+<w><ana lex="всего" gr="PART=" /></w> <w><ana lex="в" gr="PR=" /></w> <w><ana lex="индивидуальный" gr="A=abl,pl,plen" /><ana lex="индивидуальный" gr="A=acc,pl,plen,anim" /><ana lex="индивидуальный" gr="A=gen,pl,plen" /></w> <w><ana lex="вид" gr="S,m,inan=abl,pl" /></w> <w><ana lex="программа" gr="S,f,inan=acc,pl" /><ana lex="программа" gr="S,f,inan=gen,sg" /><ana lex="программа" gr="S,f,inan=nom,pl" /></w> <w><ana lex="и" gr="CONJ=" /></w> <w><ana lex="в" gr="PR=" /></w> <w><ana lex="эстафетный" gr="A=abl,pl,plen" /><ana lex="эстафетный" gr="A=acc,pl,plen,anim" /><ana lex="эстафетный" gr="A=gen,pl,plen" /></w> <w><ana lex="состязание" gr="S,n,inan=abl,pl" /></w> <w><ana lex="участвовать" gr="V,ipf,intr=praet,pl,indic" /></w> <w><ana lex="более" gr="ADV=" /></w> 700 <w><ana lex="спортсмен" gr="S,m,anim=acc,pl" /><ana lex="спортсмен" gr="S,m,anim=gen,pl" /></w> <w><ana lex="из" gr="PR=" /></w> <w><ana lex="четырнадцать" gr="NUM=abl" /><ana lex="четырнадцать" gr="NUM=dat" /><ana lex="четырнадцать" gr="NUM=gen" /></w> <w><ana lex="регион" gr="S,m,inan=gen,pl" /></w> <w><ana lex="поволжье" gr="S,geo,n,inan=acc,pl" /><ana lex="поволжье" gr="S,geo,n,inan=gen,sg" /><ana lex="поволжье" gr="S,geo,n,inan=nom,pl" /></w>.
+
+
+<w><ana lex="фото" gr="S,n,inan=abl,pl" /><ana lex="фото" gr="S,n,inan=abl,sg" /><ana lex="фото" gr="S,n,inan=acc,pl" /><ana lex="фото" gr="S,n,inan=acc,sg" /><ana lex="фото" gr="S,n,inan=dat,pl" /><ana lex="фото" gr="S,n,inan=dat,sg" /><ana lex="фото" gr="S,n,inan=gen,pl" /><ana lex="фото" gr="S,n,inan=gen,sg" /><ana lex="фото" gr="S,n,inan=ins,pl" /><ana lex="фото" gr="S,n,inan=ins,sg" /><ana lex="фото" gr="S,n,inan=nom,pl" /><ana lex="фото" gr="S,n,inan=nom,sg" /></w>: <w></w>://<w></w>.<w></w> 
+</se>
+</body></html>
