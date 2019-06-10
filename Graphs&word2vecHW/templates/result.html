@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block header %}
+
+  <div class="container-fluid bg-4 text-center">
+    <h3 class="margin">Узел: "{{ word }}"</h3>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+  {% if isWordExists %}
+    <div class="container-fluid bg-2">
+      <div class="col-sm-6 form-group">
+        <p>Количество узлов: {{ nodesN }}</p>
+        <p>Количество рёбер: {{ edgesN }}</p>
+        <p>Плотность графа:  {{ density }}</p>
+        <p>Радиус графа:  {{ radius }}</p>
+        <p>Диаметр графа:  {{ diameter }}</p>
+        <p>Коэффициент ассортативности: {{ dpcc }}</p>
+        <p>Коэффициент кластеризации: {{ ac }}</p>
+      </div>
+      <div class="col-sm-6 form-group">
+        <h4>Центральные узлы графа:</h4>
+        <p>По degree_centrality: "{{ deg }}"</p>
+        <p>По closeness_centrality: "{{ close }}"</p>
+      </div>
+    </div>
+  {% else %}
+    <div class="container-fluid bg-2 text-center">
+      <h4 class="margin">Ошибка! Слова {{ word }} нет в модели </h3>
+    </div>
+  {% endif %}
+{% endblock %}
