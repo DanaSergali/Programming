@@ -28,6 +28,10 @@
         <p>По eigenvector_centrality: "{{ eigen }}"</p>
       </div>
     </div>
+    <div class="container-fluid bg-1 text-center">
+      <h3>Граф</h3>
+      <img src={{url_for('static', filename='graph.png')  + '?=' + dt}} alt='graph'/>
+    </div>
   {% else %}
     <div class="container-fluid bg-2 text-center">
       <h4 class="margin">Ошибка! Слова {{ word }} нет в модели </h3>

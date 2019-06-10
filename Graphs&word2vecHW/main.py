@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template, url_for, request, redirect, jsonify
 import re
+import os
+import datetime
 import random
 import gensim
 import logging
@@ -9,6 +11,7 @@ import progressbar
 import urllib.request
 from gensim.models import word2vec
 import networkx as nx
+from networkx.algorithms import community
 import matplotlib.pyplot as plt
 from matplotlib import style
 style.use('ggplot')
@@ -138,17 +141,20 @@ def result():
 
             gIndex = gIndexS
 
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_nodes(G, pos, node_color='red', node_size=10)
-        nx.draw_networkx_edges(G, pos, edge_color='blue')
-        nx.draw_networkx_labels(G, pos, font_size=20, font_family='Arial')
+        pos = nx.spring_layout(G, k=4, scale=1500, iterations=50)
+        nx.draw_networkx_nodes(G, pos, node_color='red', node_size=20, width=3)
+        nx.draw_networkx_edges(G, pos, edge_color='green')
+        nx.draw_networkx_labels(G, pos, font_size=8, font_family='Verdana')
         plt.axis('off')
         plt.ioff()
-        plt.savefig('graph.png')
-        plt.close()
+        if not os.path.exists('static'):
+            os.mkdir('static')
+        else:
+            if os.path.exists('static/graph.png'):
+                os.remove('static/graph.png')
 
-        print('nodes: ', G.nodes())
-        print('edges: ', G.edges())
+        plt.savefig('static/graph.png')
+        plt.close()
 
         nodesN = G.number_of_nodes()
         edgesN = G.number_of_edges()
@@ -162,22 +168,26 @@ def result():
             dpcc = '-'
 
         deg = nx.degree_centrality(G)
-        print('=====================================')
-        print(deg)
         degC = sorted(deg, key=deg.get, reverse=True)[0]
         close = nx.closeness_centrality(G)
         closeC = sorted(close, key=close.get, reverse=True)[0]
         between = nx.betweenness_centrality(G)
         betweenC = sorted(between, key=between.get, reverse=True)[0]
-        eigen = nx.eigenvector_centrality(G)
-        eigenC = sorted(eigen, key=eigen.get, reverse=True)[0]
+        try:
+            eigen = nx.eigenvector_centrality(G)
+            eigenC = sorted(eigen, key=eigen.get, reverse=True)[0]
+        except:
+            print('Could not calculate eigenvector_centrality')
+            eigenC = '-'
+
+        dt = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
 
         return render_template('result.html', word=word,
                                isWordExists=wordExists,
                                nodesN=nodesN, edgesN=edgesN, density=density,
                                radius=radius, diameter=diameter,
                                dpcc=dpcc, ac=ac, deg=degC, close=closeC,
-                               between=betweenC, eigen=eigenC)
+                               between=betweenC, eigen=eigenC, dt=dt)
     else:
         wordExists = False
         return render_template('result.html', word=word,
