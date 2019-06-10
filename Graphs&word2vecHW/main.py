@@ -103,7 +103,7 @@ def result():
     if wordInModel in model:
         G.add_node(word)
 
-        for i in model.most_similar(positive=[wordInModel], topn=None):
+        for i in model.most_similar(positive=[wordInModel], topn=100):
             similar = i[0]
             # фильтр для отбора существительных
             if similar.split('_')[1] != 'S':
@@ -119,7 +119,7 @@ def result():
             G.add_edge(word, w)
 
             gIndexS = gIndex
-            for j in model.most_similar(positive=[similar], topn=20):
+            for j in model.most_similar(positive=[similar], topn=100):
                 similarJ = j[0]
                 wS = similarJ.split('_')[0]
                 coeffS = j[1]
@@ -167,12 +167,17 @@ def result():
         degC = sorted(deg, key=deg.get, reverse=True)[0]
         close = nx.closeness_centrality(G)
         closeC = sorted(close, key=close.get, reverse=True)[0]
+        between = nx.betweenness_centrality(G)
+        betweenC = sorted(between, key=between.get, reverse=True)[0]
+        eigen = nx.eigenvector_centrality(G)
+        eigenC = sorted(eigen, key=eigen.get, reverse=True)[0]
 
         return render_template('result.html', word=word,
                                isWordExists=wordExists,
                                nodesN=nodesN, edgesN=edgesN, density=density,
                                radius=radius, diameter=diameter,
-                               dpcc=dpcc, ac=ac, deg=degC, close=closeC)
+                               dpcc=dpcc, ac=ac, deg=degC, close=closeC,
+                               between=betweenC, eigen=eigenC)
     else:
         wordExists = False
         return render_template('result.html', word=word,
