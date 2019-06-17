@@ -13,6 +13,7 @@ model = None
 
 
 def get_model():
+    global model
     getpost.dowload_model(m)  # загружаем модель
 
     if m.endswith('.vec.gz'):
@@ -23,6 +24,8 @@ def get_model():
             'static/' + m, binary=True)
     else:
         model = gensim.models.KeyedVectors.load(m)
+
+    print('Model loaded')
 
 
 def split_book(phrase):
