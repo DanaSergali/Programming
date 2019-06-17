@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <div class="form-group row" style="margin-left: 0; margin-right: 0;">
+    <div class="card border-warning mb-3" style="max-width: 30rem;">
+      <div class="card-header">Старт</div>
+      <div class="card-body">
+        <h4 class="card-title">Игра началась</h4>
+        <p class="card-text">Постарайтесь отличить оригинальные цитаты Джеймса Джойса от сгенерированных кодом</p>
+      </div>
+    </div>
+    <div class="card border-info mb-3" style="max-width: 30rem; margin-left: 20px;">
+      <div class="card-header">Подсказка</div>
+      <div class="card-body">
+        <h4 class="card-title">В текущей подборке:</h4>
+        <p class="card-text"> {{ genCount }} сгенерированных и {{ origCount }} оригинальных цитат </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <form action={{ url_for('result') }}>
+    {% for quote in quotes %}
+      <div class="card border-success mb-3">
+        <div class="card-body">
+          <blockquote class="blockquote">
+            <p class="mb-0">{{ quote['phrase'] }}</p>
+            <p class="blockquote-footer"> {{ quote['book'] }} </p>
+          </blockquote>
+          <div class="form-group row" style="margin-left: 0; margin-right: 0;">
+            <div class="custom-control custom-radio col-sm-2">
+              <input
+                type="radio"
+                id={{ quote['key'] + "orig" }}
+                name={{ quote['key'] }}
+                value='original'
+                class="custom-control-input"
+                checked
+              >
+              <label class="custom-control-label" for={{ quote['key'] + "orig" }}>Оригинальная</label>
+            </div>
+            <div class="custom-control custom-radio col-sm-2">
+              <input
+                type="radio"
+                id={{ quote['key'] + "gen" }}
+                name={{ quote['key'] }}
+                value='generated'
+                class="custom-control-input"
+              >
+              <label class="custom-control-label" for={{ quote['key'] + "gen" }}>Сгенерированная</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Отправить ответы</button>
+  </form>
+{% endblock %}
