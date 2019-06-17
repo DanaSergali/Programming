@@ -1,0 +1,4 @@
+Flask==1.0.3
+progressbar==2.5
+pymorphy2==0.8
+gensim==3.7.3
