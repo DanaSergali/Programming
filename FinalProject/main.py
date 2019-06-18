@@ -88,8 +88,8 @@ def quiz():
         finalQuotes[randed] = lingwork.change_quote(finalQuotes[randed])
     qOriginal = qCount - qGenerated
 
-    return render_template('quiz.html', genCount=qGenerated, origCount=qOriginal,
-                           quotes=finalQuotes)
+    return render_template('quiz.html', genCount=qGenerated,
+                           origCount=qOriginal, quotes=finalQuotes)
 
 
 @app.route('/result')
